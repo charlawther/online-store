@@ -1,0 +1,11 @@
+BEGIN;
+
+INSERT INTO orders (customer_id, order_date) 
+VALUES (1, CURRENT_DATE)
+RETURNING order_id;
+
+INSERT INTO order_items (order_id, product_id, quantity)
+VALUES (3, 1, 1),  -- смартфон
+       (3, 2, 2);  -- рубашки
+
+COMMIT;
