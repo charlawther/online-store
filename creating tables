@@ -37,3 +37,50 @@ CREATE TABLE order_items (
     FOREIGN KEY (order_id) REFERENCES orders(order_id),
     FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
+
+-- Вставка данных в таблицу 
+INSERT INTO customers (customer_name, email) 
+VALUES 
+('John Doe', 'john.doe@example.com'),
+('Jane Smith', 'jane.smith@example.com'),
+('Alice Johnson', 'alice.johnson@example.com'),
+('Bob Brown', 'bob.brown@example.com');
+
+
+INSERT INTO categories (category_name) 
+VALUES 
+('Electronics'), 
+('Clothing'), 
+('Home Appliances'), 
+('Books');
+
+
+INSERT INTO products (product_name, price, category_id) 
+VALUES 
+('Smartphone', 699.99, 1),  -- Категория 'Electronics'
+('Laptop', 999.99, 1),      -- Категория 'Electronics'
+('T-shirt', 19.99, 2),      -- Категория 'Clothing'
+('Jeans', 49.99, 2),        -- Категория 'Clothing'
+('Blender', 89.99, 3),      -- Категория 'Home Appliances'
+('Microwave', 129.99, 3),   -- Категория 'Home Appliances'
+('Fiction Book', 15.99, 4), -- Категория 'Books'
+('Cookbook', 25.99, 4);     -- Категория 'Books'
+
+
+INSERT INTO orders (customer_id, order_date) 
+VALUES 
+(1, '2024-10-01'),  -- Заказ от John Doe
+(2, '2024-10-02'),  -- Заказ от Jane Smith
+(3, '2024-10-03'),  -- Заказ от Alice Johnson
+(4, '2024-10-04');  -- Заказ от Bob Brown
+
+
+INSERT INTO order_items (order_id, product_id, quantity) 
+VALUES 
+(1, 1, 1),  -- John Doe заказал 1 смартфон
+(1, 3, 2),  -- John Doe заказал 2 футболки
+(2, 2, 1),  -- Jane Smith заказала 1 ноутбук
+(3, 5, 1),  -- Alice Johnson заказала 1 блендер
+(3, 7, 3),  -- Alice Johnson заказала 3 книги
+(4, 4, 1),  -- Bob Brown заказал 1 пару джинсов
+(4, 8, 1);  -- Bob Brown заказал 1 кулинарную книгу
